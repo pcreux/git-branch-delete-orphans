@@ -2,11 +2,11 @@
 
 def remotes
   puts "Listing remote branches..."
-  @remote ||= `git ls-remote | grep 'refs/heads'`.map { |l| l.gsub(/^.*refs\/heads\//, '').strip }
+  @remote ||= `git ls-remote | grep 'refs/heads'`.split("\n").map { |l| l.gsub(/^.*refs\/heads\//, '').strip }
 end
 
 def locals
-  @local ||= `cat .git/config | grep "refs/heads/\\w"`.map { |l| l.gsub(/^.*refs\/heads\//, '').strip }
+  @local ||= `cat .git/config | grep "refs/heads/\\w"`.split("\n").map { |l| l.gsub(/^.*refs\/heads\//, '').strip }
 end
 
 def cli(orphans)
