@@ -11,6 +11,12 @@ end
 
 def cli(orphans)
   puts ""
+
+  if orphans.empty?
+    puts "No orphaned local branches, nothing to do."
+    exit
+  end
+
   puts "The following branches track a remote branch which does not exist anymore:"
   orphans.each { |b| puts " - #{b}" }
 
