@@ -2,15 +2,21 @@
 
 def remotes
   puts "Listing remote branches..."
-  @remote ||= `git ls-remote | grep 'refs/heads'`.map { |l| l.gsub(/^.*refs\/heads\//, '').strip }
+  @remote ||= `git ls-remote | grep 'refs/heads'`.split("\n").map { |l| l.gsub(/^.*refs\/heads\//, '').strip }
 end
 
 def locals
-  @local ||= `cat .git/config | grep "refs/heads/\\w"`.map { |l| l.gsub(/^.*refs\/heads\//, '').strip }
+  @local ||= `cat .git/config | grep "refs/heads/\\w"`.split("\n").map { |l| l.gsub(/^.*refs\/heads\//, '').strip }
 end
 
 def cli(orphans)
   puts ""
+
+  if orphans.empty?
+    puts "No orphaned local branches, nothing to do."
+    exit
+  end
+
   puts "The following branches track a remote branch which does not exist anymore:"
   orphans.each { |b| puts " - #{b}" }
 
