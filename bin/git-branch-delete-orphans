@@ -27,7 +27,8 @@ def cli(orphans)
     keep = false
     until delete || delete_all || keep || keep_all
       puts ""
-      puts "#{b} tracks a remote branch which does not exist anymore. Do you want to [d]elete it, [D]elete all, [k]eep it or [K]eep all?"
+      puts "#{b} tracks a remote branch which does not exist anymore."
+      print "Do you want to [d]elete it, [D]elete all, [k]eep it or [K]eep all? "
       case STDIN.gets.chomp
       when 'd' then delete = true
       when 'D' then delete_all = true
