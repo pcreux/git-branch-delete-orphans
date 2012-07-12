@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+require 'rubygems'
+require 'rainbow'
+
 ['TERM', 'INT'].each do |signal|
   Signal.trap(signal) do
     # most likely, users will CTRL-C when being prompted
@@ -37,7 +40,7 @@ def cli(orphans)
     keep = false
     until delete || delete_all || keep || keep_all
       puts ""
-      puts "#{b} tracks a remote branch which does not exist anymore."
+      puts "Branch #{b.bright} tracks a remote branch which does not exist anymore."
       print "Do you want to [d]elete it, [D]elete all, [k]eep it or [K]eep all? "
       case STDIN.gets.chomp
       when 'd' then delete = true
