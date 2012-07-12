@@ -1,5 +1,15 @@
 #!/usr/bin/env ruby
 
+['TERM', 'INT'].each do |signal|
+  Signal.trap(signal) do
+    # most likely, users will CTRL-C when being prompted
+    # for an action, so we need to ensure that the shell
+    # prompt is rendered on a new line
+    puts
+    exit -1
+  end
+end
+
 def remotes
   puts "Listing remote branches..."
   @remote ||= `git ls-remote | grep 'refs/heads'`.split("\n").map { |l| l.gsub(/^.*refs\/heads\//, '').strip }
