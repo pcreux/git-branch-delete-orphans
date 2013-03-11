@@ -17,7 +17,7 @@ remote does not exist anymore and prompts you to delete them.
 Listing remote branches...
 From git@git.versapay.com:eft3
 
-The following branches track a remote branch which does not exist anymore:
+The following branches track a remote branch whose does not exist anymore:
  - inbound_outbound_balances
  - 6956-refactor-login-for-checkout
  - 6141-set-timezone-to-PST
