@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.1.0
+
+* Better error messages when not ran in a git repo. PR #7 by [@pvdb][]
+
 ## Version 0.0.5
 
 * Highlight branch. PR [#5][] by [@pvdb][]
