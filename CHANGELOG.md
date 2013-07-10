@@ -2,7 +2,7 @@
 
 ## Version 0.1.0
 
-* Better error messages when not ran in a git repo. PR #7 by [@pvdb][]
+* Better error messages when not ran in a git repo. PR [#7][] by [@pvdb][]
 
 ## Version 0.0.5
 
@@ -32,6 +32,7 @@
 [#3]: https://github.com/pcreux/git/issues/3
 [#4]: https://github.com/pcreux/git/issues/4
 [#5]: https://github.com/pcreux/git/issues/5
+[#7]: https://github.com/pcreux/git/issues/7
 [@pcreux]: https://github.com/pcreux
 [@pvdb]: https://github.com/pvdb
 [@waynemoore]: https://github.com/waynemoore
