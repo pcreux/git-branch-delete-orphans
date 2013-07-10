@@ -55,5 +55,23 @@ def cli(orphans)
   end
 end
 
-orphans = locals - remotes
-cli(orphans)
+git_dir = `git rev-parse --git-dir`.chomp
+
+if $?.success?
+
+  # step 1: change to the root of the git repo
+  Dir.chdir File.dirname(git_dir)
+
+  # step 2: calculate the orphaned branches
+  orphans = locals - remotes
+
+  # step 3: action the orphans
+  cli(orphans)
+
+else
+
+  puts "Please run #{File.basename __FILE__} from inside a git repo"
+
+end
+
+# That's all, Folks!
