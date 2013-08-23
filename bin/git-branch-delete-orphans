@@ -14,8 +14,7 @@ require 'rainbow'
 end
 
 def remotes
-  puts "Listing remote branches..."
-  @remote ||= `git ls-remote | grep 'refs/heads'`.split("\n").map { |l| l.gsub(/^.*refs\/heads\//, '').strip }
+  @remote ||= `git ls-remote -q | grep 'refs/heads'`.split("\n").map { |l| l.gsub(/^.*refs\/heads\//, '').strip }
 end
 
 def locals
@@ -23,12 +22,6 @@ def locals
 end
 
 def cli(orphans)
-  puts ""
-
-  if orphans.empty?
-    puts "No orphaned local branches, nothing to do."
-    exit
-  end
 
   puts "The following branches track a remote branch which does not exist anymore:"
   orphans.each { |b| puts " - #{b}" }
@@ -66,7 +59,7 @@ if $?.success?
   orphans = locals - remotes
 
   # step 3: action the orphans
-  cli(orphans)
+  cli(orphans) unless orphans.empty?
 
 else
 
