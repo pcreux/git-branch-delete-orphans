@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.1.2
+
+* Support new version of Rainbow. PR [#9][] by [@pvdb][]
+
 ## Version 0.1.1
 
 * Don't generate superfluous output. PR [#8][] by [@pvdb][]
@@ -37,6 +41,8 @@
 [#4]: https://github.com/pcreux/git/issues/4
 [#5]: https://github.com/pcreux/git/issues/5
 [#7]: https://github.com/pcreux/git/issues/7
+[#8]: https://github.com/pcreux/git/issues/8
+[#9]: https://github.com/pcreux/git/issues/9
 [@pcreux]: https://github.com/pcreux
 [@pvdb]: https://github.com/pvdb
 [@waynemoore]: https://github.com/waynemoore
