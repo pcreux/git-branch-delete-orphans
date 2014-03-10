@@ -9,7 +9,7 @@ require 'rainbow/ext/string'
     # for an action, so we need to ensure that the shell
     # prompt is rendered on a new line
     puts
-    exit -1
+    exit(-1)
   end
 end
 
@@ -26,9 +26,11 @@ def cli(orphans)
   puts "The following branches track a remote branch which does not exist anymore:"
   orphans.each { |b| puts " - #{b}" }
 
+  return unless STDIN.tty?
+
   delete_all = false
   keep_all = false
-  orphans.each do |b| 
+  orphans.each do |b|
     delete = false
     keep = false
     until delete || delete_all || keep || keep_all
